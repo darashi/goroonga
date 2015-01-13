@@ -76,6 +76,10 @@ func (c *Context) CloseDatabase(db *Database) error {
 	return nil
 }
 
+func (c *Context) Database() *Database {
+	return &Database{C.grn_ctx_db(c.ctx)}
+}
+
 func (c *Context) Send(command string) error {
 	cCommand := C.CString(command)
 	defer C.free(unsafe.Pointer(cCommand))
