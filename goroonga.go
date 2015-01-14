@@ -41,7 +41,7 @@ func NewContext() (*Context, error) {
 
 func (c *Context) Fin() error {
 	if rc := C.grn_ctx_fin(c.ctx); rc != C.GRN_SUCCESS {
-		return fmt.Errorf("grn_ct_fin() failed")
+		return fmt.Errorf("grn_ctx_fin() failed")
 	}
 	return nil
 }
